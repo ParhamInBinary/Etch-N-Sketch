@@ -22,8 +22,11 @@ export class Marker {
         drawPad.append(this.markerElement)
     }
 
-    move(key) {
-        switch(key) {
+    move( direction ) {
+        if ( this.isMovingOutOfBounds( direction )) {
+            return
+        }
+        switch( direction ) {
             case "ArrowRight": {
                 this.positionX += this.size;
                 this.markerElement.style.left = this.positionX + "px";
@@ -45,5 +48,35 @@ export class Marker {
                 break;
             }
         }
+    }
+
+    isMovingOutOfBounds( direction ) {
+        switch( direction ) {
+            case "ArrowRight": {
+                if ( this.positionX + this.size > this.positionXLimit ) {
+                    return true;
+                }
+                break;
+            }
+            case "ArrowLeft": {
+                if ( this.positionX - this.size < 0 ) {
+                    return true;
+                }
+                break;
+            }
+            case "ArrowUp": {
+                if ( this.positionY - this.size < 0 ) {
+                    return true;
+                }
+                break;
+            }
+            case "ArrowDown": {
+                if ( this.positionY + this.size > this.positionYLimit ) {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
     }
 }

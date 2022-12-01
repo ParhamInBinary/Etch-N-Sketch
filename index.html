@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-N-Sketch</title>
     <link rel="stylesheet" href="./styles.css">
-    <script defer src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
 </head>
-<body onload="main()">
+<body>
     <div class="outerFrame">
         <h1>Etch-N-Sketch</h1>
-        <div class="innerFrame">
-            <div class="marker"></div>
+        <div class="middleFrame">
+            <div class="drawPad">
+            </div>
         </div>
         <div class="controlls">
             <div class="leftKnob">
@@ -20,7 +21,7 @@
             </div>
             <div class="sizeSetting">
                 <p>Size</p>
-                <input type="number" min="1" max="64">
+                <input class="number" type="number" min="1" max="64">
             </div>
             <div class="colorSetting">
                 <p>Color</p>

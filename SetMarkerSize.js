@@ -1,4 +1,4 @@
-export function SetMarkerSize(event) {
+export function SetMarkerSize(event, marker) {
     const ChosenMarkerSize = document.querySelector("input");
     if ( ChosenMarkerSize.value > 64 ) {
         ChosenMarkerSize.value = 64;

@@ -1,4 +1,5 @@
 import { Marker } from "./Marker.js";
+import { rotateKnob } from "./rotateKnob.js";
 const marker = new Marker()
 main()
 
@@ -9,13 +10,14 @@ function main() {
 
 
 function addKeyboardListeners() {
-    document.addEventListener("keydown", moveMarker);
+    document.addEventListener("keydown", (event) => {
+        rotateKnob(event.key);
+        marker.move(event.key);
+
+    });
     document.querySelector("input").addEventListener("change", currentSize);
 }
 
-function moveMarker(event) {
-    marker.move(event.key);
-}
 
 function currentSize(event) {
     marker.changeSize(+event.currentTarget.value);

@@ -81,6 +81,7 @@ export class Marker {
     }
 
     changeSize( size ) {
+        
         this.size = size;
         this.markerElement.style.width = this.size + "px";
         this.markerElement.style.height = this.size + "px";

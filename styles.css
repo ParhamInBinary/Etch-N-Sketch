@@ -63,14 +63,9 @@ h1 {
     padding: 10px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
-.leftKnob div, .rightKnob div {
-    border: 1px solid black;
-    
-    width: 1px;
-    height: 1px;
-}
 
 .sizeSetting, .colorSetting {
     text-align: center;

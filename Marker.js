@@ -3,8 +3,8 @@ export class Marker {
     positionY = 0;
     color = "black";
     size = 4;
-    positionXLimit = document.querySelector(".drawPad").offsetWidth
-    positionYLimit = document.querySelector(".drawPad").offsetHeight
+    positionXLimit = document.querySelector(".drawPad").offsetWidth;
+    positionYLimit = document.querySelector(".drawPad").offsetHeight;
     markerElement = document.createElement("div");
 
     constructor() {
@@ -14,7 +14,6 @@ export class Marker {
         this.markerElement.style.backgroundColor = this.color;
         this.markerElement.style.width = this.size + "px";
         this.markerElement.style.height = this.size + "px";
-
     }
     
     insert() {
@@ -78,5 +77,11 @@ export class Marker {
             }
         }
         return false;
+    }
+
+    changeSize( size ) {
+        this.size = size;
+        this.markerElement.style.width = this.size + "px";
+        this.markerElement.style.height = this.size + "px";
     }
 }

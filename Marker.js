@@ -6,6 +6,7 @@ export class Marker {
     positionXLimit = document.querySelector(".drawPad").offsetWidth;
     positionYLimit = document.querySelector(".drawPad").offsetHeight;
     markerElement = document.createElement("div");
+    markerRect = this.markerElement.getBoundingClientRect();
 
     constructor() {
         this.markerElement.style.position = "relative";
@@ -52,7 +53,7 @@ export class Marker {
     isMovingOutOfBounds( direction ) {
         switch( direction ) {
             case "ArrowRight": {
-                if ( this.positionX + this.size > this.positionXLimit ) {
+                if ( this.positionX + this.size > this.positionXLimit - this.size ) {
                     return true;
                 }
                 break;
@@ -70,7 +71,7 @@ export class Marker {
                 break;
             }
             case "ArrowDown": {
-                if ( this.positionY + this.size > this.positionYLimit ) {
+                if ( this.positionY + this.size > this.positionYLimit - this.size) {
                     return true;
                 }
                 break;

@@ -9,7 +9,8 @@ export class Marker {
     markerRect = this.markerElement.getBoundingClientRect();
 
     constructor() {
-        this.markerElement.style.position = "relative";
+        this.markerElement.style.display = "inline-block";
+        this.markerElement.style.position = "absolute";
         this.markerElement.style.left = this.positionX;
         this.markerElement.style.top = this.positionY;
         this.markerElement.style.backgroundColor = this.color;
@@ -19,13 +20,14 @@ export class Marker {
     
     insert() {
         const drawPad = document.querySelector(".drawPad");
-        drawPad.append(this.markerElement)
+        drawPad.append(this.markerElement);
     }
 
     move( direction ) {
         if ( this.isMovingOutOfBounds( direction )) {
             return
         }
+        this.leaveTrail();
         switch( direction ) {
             case "ArrowRight": {
                 this.positionX += this.size;
@@ -85,5 +87,16 @@ export class Marker {
         this.size = size;
         this.markerElement.style.width = this.size + "px";
         this.markerElement.style.height = this.size + "px";
+    }
+
+    changeColor ( color ) {
+        this.color = color;
+        this.markerElement.style.backgroundColor = this.color;
+    }
+
+    leaveTrail() {
+        const clone = this.markerElement.cloneNode(true);
+        const drawPad = document.querySelector(".drawPad");
+        drawPad.append(clone);
     }
 }

@@ -2,6 +2,7 @@ import { Marker } from "./Marker.js";
 import { rotateKnob } from "./rotateKnob.js";
 import { SetMarkerSize } from "./SetMarkerSize.js";
 import { setMarkerColor } from "./setMarkerColor.js";
+import { shakeToClear } from "./shakeToClear.js";
 const marker = new Marker();
 main()
 
@@ -14,6 +15,7 @@ function addKeyboardListeners() {
     document.addEventListener("keydown", (event) => {
         rotateKnob(event.key);
         marker.move(event.key);
+        shakeToClear(event.key);
     });
 
     document.querySelector(".number").addEventListener("change", (event) => {

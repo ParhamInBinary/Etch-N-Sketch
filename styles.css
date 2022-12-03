@@ -7,6 +7,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+h2 {
+    position: absolute;
+    left: 40rem;
+}
+
 .outerFrame {
     border: 3px solid black;
     border-radius: 60px;
